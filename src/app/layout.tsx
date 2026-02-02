@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/providers/ThemeProvider";
+import { Header, Footer, SkipLink } from "@/components/layout";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
@@ -14,6 +15,15 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a192f" },
+  ],
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   title: {
@@ -65,14 +75,28 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${inter.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          {/* Skip Link for Accessibility */}
+          <SkipLink />
+          
+          {/* Site Header */}
+          <Header />
+          
+          {/* Main Content */}
+          <div className="flex-1">
+            {children}
+          </div>
+          
+          {/* Site Footer */}
+          <Footer />
+          
+          {/* Toast Notifications */}
           <Toaster position="bottom-right" />
         </ThemeProvider>
       </body>

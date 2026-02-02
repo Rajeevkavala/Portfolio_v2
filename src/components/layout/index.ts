@@ -1,3 +1,5 @@
-// Placeholder file for layout components
-// Will be populated in Phase 2
-export {};
+// Layout components barrel export
+export { Header } from "./Header";
+export { Footer } from "./Footer";
+export { MobileNav } from "./MobileNav";
+export { SkipLink } from "./SkipLink";

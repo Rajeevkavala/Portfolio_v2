@@ -49,6 +49,7 @@ export const ctaButtons = [
     label: "Resume", 
     href: "/resume.pdf", 
     icon: "download",
+    isExternal: false,
     ariaLabel: "Download my resume as PDF"
   },
   {
