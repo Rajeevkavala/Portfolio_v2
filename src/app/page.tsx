@@ -1,65 +1,83 @@
-import Image from "next/image";
+import { ThemeToggle } from "@/components/shared/ThemeToggle";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen bg-background">
+      {/* Header placeholder */}
+      <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container-custom flex h-16 items-center justify-between">
+          <span className="text-xl font-bold text-gradient-blue">Rajeev Kavala</span>
+          <ThemeToggle />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </header>
+
+      {/* Hero Section - Phase 1 Test */}
+      <main className="container-custom section-padding">
+        <div className="max-w-3xl mx-auto text-center space-y-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-gradient-blue animate-fade-in">
+            Phase 1 Complete
+          </h1>
+          <p className="text-xl text-muted-foreground animate-slide-up animation-delay-100">
+            Project infrastructure is set up and ready for development.
+          </p>
+          
+          {/* Test Components */}
+          <div className="flex flex-wrap justify-center gap-4 animate-slide-up animation-delay-200">
+            <Button className="btn-primary">Primary Button</Button>
+            <Button variant="outline" className="btn-secondary">Secondary Button</Button>
+            <Button variant="ghost" className="btn-ghost">Ghost Button</Button>
+          </div>
+
+          {/* Test Card */}
+          <Card className="card-hover mt-8 text-left animate-slide-up animation-delay-300">
+            <CardHeader>
+              <CardTitle>✅ Infrastructure Ready</CardTitle>
+              <CardDescription>
+                All Phase 1 components have been set up successfully.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <div>
+                  <p className="font-medium mb-2">Completed:</p>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge>Next.js 15</Badge>
+                    <Badge>TypeScript</Badge>
+                    <Badge>Tailwind CSS v4</Badge>
+                    <Badge>ShadCN UI</Badge>
+                    <Badge>Framer Motion</Badge>
+                    <Badge>GSAP</Badge>
+                    <Badge>Lenis</Badge>
+                    <Badge variant="outline">Dark Mode</Badge>
+                    <Badge variant="outline">Blue Theme</Badge>
+                  </div>
+                </div>
+                <div>
+                  <p className="font-medium mb-2">Project Structure:</p>
+                  <ul className="text-sm text-muted-foreground space-y-1">
+                    <li>• /components (ui, layout, sections, shared, admin, icons)</li>
+                    <li>• /data (siteConfig, skills, projects, experience)</li>
+                    <li>• /lib (utils, constants, animations, gsap)</li>
+                    <li>• /hooks (useReducedMotion, useScrollAnimation, useMediaQuery)</li>
+                    <li>• /types (project, experience, skill, caseStudy)</li>
+                    <li>• /providers (ThemeProvider, LenisProvider)</li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </main>
+
+      {/* Footer placeholder */}
+      <footer className="border-t border-border py-8">
+        <div className="container-custom text-center text-sm text-muted-foreground">
+          © 2026 Rajeev Kavala. Built with Next.js
+        </div>
+      </footer>
     </div>
   );
 }
